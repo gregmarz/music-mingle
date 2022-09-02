@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const artistSchema = new mongoose.Schema({
   userName: {

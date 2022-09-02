@@ -4,14 +4,10 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    artist: async (parent, arg, context) => {
-      if (context.artist) {
-        return Artist.findOne({ _id: context.artist._id });
-      } else {
-        throw new AuthenticationError("You must log in first");
-      }
+    artists: async (parent, arg, context) => {
+      return Artist.find();
     },
-    venue: async (parent, arg, context) => {
+    venues: async (parent, arg, context) => {
       if (context.venue) {
         return Venue.findOne({ _id: context.venue._id });
       } else {
@@ -21,8 +17,17 @@ const resolvers = {
   },
 
   Mutation: {
-    addArtist: async (parent, { username, email, password }) => {
-      const artist = await Artist.create({ username, email, password });
+    addArtist: async (
+      parent,
+      { userName, email, password, genre, groupNumber }
+    ) => {
+      const artist = await Artist.create({
+        userName,
+        email,
+        password,
+        genre,
+        groupNumber,
+      });
       const token = signToken(artist);
       return { token, artist };
     },
