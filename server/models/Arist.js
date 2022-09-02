@@ -1,10 +1,21 @@
 const mongoose = require("mongoose");
 
 const artistSchema = new Schema({
-  name: {
+  userName: {
     type: String,
     required: true,
     trim: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, "Must use a valid email address"],
+  },
+  password: {
+    type: String,
+    required: true,
+    minLength: 5,
   },
   genre: {
     type: String,
@@ -21,11 +32,6 @@ const artistSchema = new Schema({
   },
   number: {
     type: String,
-  },
-  password: {
-    type: String,
-    required: true,
-    minLength: 5,
   },
 });
 
