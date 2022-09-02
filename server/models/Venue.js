@@ -1,10 +1,21 @@
 const mongoose = require("mongoose");
 
 const venueSchema = new Schema({
-  name: {
+  userName: {
     type: String,
     required: true,
     trim: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, "Must use a valid email address"],
+  },
+  password: {
+    type: String,
+    required: true,
+    minLength: 5,
   },
   type: {
     type: String,
@@ -24,16 +35,8 @@ const venueSchema = new Schema({
   number: {
     type: String,
   },
-  email: {
-    type: String,
-  },
   socials: {
     type: String,
-  },
-  password: {
-    type: String,
-    required: true,
-    minLength: 5,
   },
 });
 
