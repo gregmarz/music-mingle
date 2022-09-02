@@ -4,14 +4,14 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    Artist: async (parent, arg, context) => {
+    artist: async (parent, arg, context) => {
       if (context.artist) {
         return Artist.findOne({ _id: context.artist._id });
       } else {
         throw new AuthenticationError("You must log in first");
       }
     },
-    Venue: async (parent, arg, context) => {
+    venue: async (parent, arg, context) => {
       if (context.venue) {
         return Venue.findOne({ _id: context.venue._id });
       } else {
