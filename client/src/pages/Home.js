@@ -1,13 +1,11 @@
-import Header from "./Header"
+/* import Header from "./Header"
 import ArtistProf from "./ArtistProf"
-import VenueProf from "./VenueProf"
-
-import "./src/App.css"
+import VenueProf from "./VenueProf" */
+/* import "./src/App.css" */
 
 function Home() {
     return (
         <div>
-            <Header />
         <div>
             <form className="arist-login">
             <h2>Artist Login</h2>
@@ -35,3 +33,5 @@ function Home() {
         </div>
     )
 }
+
+export default Home;
