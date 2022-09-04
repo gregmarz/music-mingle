@@ -9,6 +9,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Home from './pages/Home';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -39,6 +40,7 @@ function App() {
     <ApolloProvider client={client}>
     <Router>
       <div className="App">
+        <Home/>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
