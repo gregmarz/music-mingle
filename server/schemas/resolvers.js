@@ -47,10 +47,11 @@ const resolvers = {
     },
     artistLogin: async (parent, { email, password }) => {
       const artist = await Artist.findOne({ email });
+      console.log(artist);
       if (!artist) {
         throw new AuthenticationError("There is no Artist with that email");
       }
-      const correctPass = await Artist.isCorrectPassword(password);
+      const correctPass = await artist.isCorrectPassword(password);
       if (!correctPass) {
         throw new AuthenticationError("Password is incorrect");
       }
@@ -62,7 +63,7 @@ const resolvers = {
       if (!venue) {
         throw new AuthenticationError("There is no venue with that email");
       }
-      const correctPass = await User.isCorrectPassword(password);
+      const correctPass = await venue.isCorrectPassword(password);
       if (!correctPass) {
         throw new AuthenticationError("Password is incorrect");
       }
