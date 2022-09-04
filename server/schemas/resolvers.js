@@ -8,11 +8,10 @@ const resolvers = {
       return Artist.find();
     },
     venues: async (parent, arg, context) => {
-      if (context.venue) {
-        return Venue.findOne({ _id: context.venue._id });
-      } else {
-        throw new AuthenticationError("You must log in first");
-      }
+      return Venue.find();
+      // else {
+      //   throw new AuthenticationError("You must log in first");
+      // }
     },
   },
 
@@ -31,8 +30,18 @@ const resolvers = {
       const token = signToken(artist);
       return { token, artist };
     },
-    addVenue: async (parent, { username, email, password }) => {
-      const venue = await Venue.create({ username, email, password });
+    addVenue: async (
+      parent,
+      { userName, email, password, type, location, capacity }
+    ) => {
+      const venue = await Venue.create({
+        userName,
+        email,
+        password,
+        type,
+        location,
+        capacity,
+      });
       const token = signToken(venue);
       return { token, venue };
     },
