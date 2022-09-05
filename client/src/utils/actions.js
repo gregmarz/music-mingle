@@ -1,2 +1,2 @@
-export const VEUNUE_LOGIN = "VEUNUE_LOGIN";
-export const ARTIST_LOGIN = "ARTIST_LOGIN";
+export const VEUNUE_LOG = "VEUNUE_LOG";
+export const ARTIST_LOG = "ARTIST_LOG";

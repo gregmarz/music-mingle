@@ -35,9 +35,11 @@ const venueSchema = new mongoose.Schema({
   },
   number: {
     type: String,
+    required: true,
   },
   socials: {
     type: String,
+    required: true,
   },
 });
 

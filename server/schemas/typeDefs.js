@@ -34,8 +34,8 @@ const typeDefs = gql`
     venue: Venue
   }
   type Mutation {
-    artistLogin(userName: String!, password: String!): Auth
-    venueLogin(userName: String!, password: String!): Auth
+    artistLogin(email: String!, password: String!): Auth
+    venueLogin(email: String!, password: String!): Auth
     addVenue(userName: String!, email: String!, password: String!, type: String!, location: String!, capacity: Int!, number: String, email: String, socials: String): Auth
     addArtist(userName: String!, email: String!, password: String!, genre: String!, groupNumber: Int!, link: String, number: String): Auth
   }

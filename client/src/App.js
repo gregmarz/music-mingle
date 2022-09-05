@@ -10,7 +10,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { StoreProvider } from "./utils/GlobalState";
 import Home from "./pages/Home";
-import ArtistLogin from "./pages/ArtistLogin";
+/* import ArtistLogin from "./pages/ArtistLogin"; */
 import Error from "./pages/Error";
 
 // Construct our main GraphQL API endpoint
@@ -44,7 +44,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="artist-login" element={<ArtistLogin />}></Route>
+{/*             <Route path="artist-login" element={<ArtistLogin />}></Route> */}
             <Route path="*" element={<Error />}></Route>
           </Routes>
         </BrowserRouter>
