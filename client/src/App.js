@@ -1,6 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,21 +7,19 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { StoreProvider } from "./utils/GlobalState";
-import Home from "./pages/Home";
-import ArtistLogin from "./pages/ArtistLogin";
-import Error from "./pages/Error";
 
-// Construct our main GraphQL API endpoint
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Error from "./pages/Error";
+import Nav from "./components/Nav";
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
-// Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
   const token = localStorage.getItem("id_token");
-  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
@@ -32,7 +29,6 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
@@ -40,15 +36,17 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <StoreProvider>
-        <BrowserRouter>
+      <Router>
+        <div>
+          <Nav />
           <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/artist-login" element={<ArtistLogin />}></Route>
-            <Route path="*" element={<Error />}></Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="*" element={<Error />} />
           </Routes>
-        </BrowserRouter>
-      </StoreProvider>
+        </div>
+      </Router>
     </ApolloProvider>
   );
 }
