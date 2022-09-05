@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactDOM } from "react-dom";
+import { Link } from "react-router-dom";
 import Modal from "react-modal";
 
 const customStyles = {
@@ -41,9 +42,15 @@ function Header() {
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Login</h2>
         <button onClick={closeModal}>close</button>
         <div>Are You logging in as an Artist or Venue?</div>
-        <a href="/artist-login">Artist</a>
+        <ul>
+        <li><Link to="/artist-login">
+        Artist-Login
+            </Link></li>
         <br></br>
-        <a href="venue-login">Venue</a>
+        <li><Link to="/artist-signup">
+        Artist-Signup
+        </Link></li>
+        </ul>
       </Modal>
     </div>
   );

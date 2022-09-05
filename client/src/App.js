@@ -9,8 +9,13 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { StoreProvider } from './utils/GlobalState';
 import Home from "./pages/Home";
 import Header from "./components/Header";
+import ArtistLogin from "./pages/ArtistLogin";
+/* import VenueLogin from "./pages/VenueLogin"; */
+import ArtistSignup from "./pages/ArtistSignup";
+/* import VenueSignup from "./pages/VenueSignup"; */
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -40,10 +45,28 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+      <StoreProvider>
         <div className="App">
           <Header />
-          <Home />
-
+          <Routes>
+           <Route 
+                path="/artist-login" 
+                element={<ArtistLogin />} 
+              />
+              <Route 
+                path="/artist-signup" 
+                element={<ArtistSignup />} 
+              />
+{/*                          <Route 
+                path="/venue-login" 
+                element={<VenueLogin />} 
+              />
+              <Route 
+                path="/venue-signup" 
+                element={<VenueSignup />} 
+              /> */}
+              </Routes>
+              <Home />
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
@@ -59,6 +82,7 @@ function App() {
             </a>
           </header>
         </div>
+        </StoreProvider>
       </Router>
     </ApolloProvider>
   );
