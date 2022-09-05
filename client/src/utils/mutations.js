@@ -51,8 +51,7 @@ export const ADD_ARTIST = gql`
 `
 
 export const ADD_VENUE = gql `
-    mutation addVenue 
-    (
+    mutation addVenue(
       $userName: String!
       $email: String!
       $password: String!
