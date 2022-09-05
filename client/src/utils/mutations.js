@@ -28,18 +28,18 @@ export const ADD_ARTIST = gql`
       $email: String!
       $password: String!
       $genre: String!
-      $groupNumber: Integer!
+      $groupNumber: Int!
       $link: String!
       $number: String!
       ){
         addArtist(
-          userName: $String!
-          email: $String!
-          password: $String!
-          genre: $String!
-          groupNumber: $Integer!
-          link: $String!
-          number: $String!
+          userName: $String
+          email: $String
+          password: $String
+          genre: $String
+          groupNumber: $Int
+          link: $String
+          number: $String
           )token
           artist {
             _id
@@ -52,20 +52,32 @@ export const ADD_ARTIST = gql`
 
 export const ADD_VENUE = gql `
     mutation addVenue 
-    ($userName: String!, $email: String!, $password: String! $type: String!, $location: String!, $capacity: Integer!, $number: Integer, $email: String, socials: String) {
+    (
+      $userName: String!
+      $email: String!
+      $password: String!
+      $type: String!
+      $location: String!
+      $capacity: Int!
+      $number: String!
+      $socials: String!
+      ){
         addVenue 
-        ($name: String!, $type: String!, $location: String!, $capacity: Integer!, $number: Integer, $email: String, socials: String)
-        {
-            userName
+        (
+          userName: $String
+          email: $String
+          password: $String
+          type: $String
+          location: $String
+          capacity: $Int
+          number: $String
+          socials: $String
+          ){
+          token
+          venue {
+            _id
             email
-            password
-            type
-            location
-            capacity
-            number
-            socials
-
+          }
         }
-        
     }
 `

@@ -18,7 +18,7 @@ const resolvers = {
   Mutation: {
     addArtist: async (
       parent,
-      { userName, email, password, genre, groupNumber }
+      { userName, email, password, genre, groupNumber, link, number }
     ) => {
       const artist = await Artist.create({
         userName,
@@ -26,13 +26,15 @@ const resolvers = {
         password,
         genre,
         groupNumber,
+        link,
+        number,
       });
       const token = signToken(artist);
       return { token, artist };
     },
     addVenue: async (
       parent,
-      { userName, email, password, type, location, capacity }
+      { userName, email, password, type, location, capacity, number, socials }
     ) => {
       const venue = await Venue.create({
         userName,
@@ -41,6 +43,8 @@ const resolvers = {
         type,
         location,
         capacity,
+        number,
+        socials,
       });
       const token = signToken(venue);
       return { token, venue };
