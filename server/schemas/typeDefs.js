@@ -7,6 +7,22 @@ const typeDefs = gql`
     email: String!
   }
 
+  type:Artist {
+    _id: ID
+    name:String!
+    genre:String
+    groupSize:Number!
+    link:String
+  }
+
+  type:Venue {
+    name:String!
+    type:String!
+    capacity:Number!
+    location:String!
+    website:String
+  }
+
   type Auth {
     token: ID
     user: User

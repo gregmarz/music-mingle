@@ -13,6 +13,12 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+    artist: async (parent, args, context) => {
+      return await Artist.find();
+    },
+    venue: async (parent, args, context) => {
+      return await Venue.find();
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
