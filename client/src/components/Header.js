@@ -43,9 +43,9 @@ function Header() {
         <button onClick={closeModal}>close</button>
         <div>Are You logging in as an Artist or Venue?</div>
         <ul>
-        <li><Link to="/artist-login">
+        {/* <li><Link to="/artist-login">
         Artist-Login
-            </Link></li>
+            </Link></li> */}
         <br></br>
         <li><Link to="/artist-signup">
         Artist-Signup
