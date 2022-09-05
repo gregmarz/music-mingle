@@ -1,78 +1,42 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Artist, Venue } = require("../models");
+const { User, Artist, Venue } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    artists: async (parent, arg, context) => {
-      return Artist.find();
-    },
-    venues: async (parent, arg, context) => {
-      return Venue.find();
-      // else {
-      //   throw new AuthenticationError("You must log in first");
-      // }
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id);
+
+        return user;
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
   },
-
   Mutation: {
-    addArtist: async (
-      parent,
-      { userName, email, password, genre, groupNumber, link, number }
-    ) => {
-      const artist = await Artist.create({
-        userName,
-        email,
-        password,
-        genre,
-        groupNumber,
-        link,
-        number,
-      });
-      const token = signToken(artist);
-      return { token, artist };
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return { token, user };
     },
-    addVenue: async (
-      parent,
-      { userName, email, password, type, location, capacity, number, socials }
-    ) => {
-      const venue = await Venue.create({
-        userName,
-        email,
-        password,
-        type,
-        location,
-        capacity,
-        number,
-        socials,
-      });
-      const token = signToken(venue);
-      return { token, venue };
-    },
-    artistLogin: async (parent, { email, password }) => {
-      const artist = await Artist.findOne({ email });
-      console.log(artist);
-      if (!artist) {
-        throw new AuthenticationError("There is no Artist with that email");
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError("Incorrect credentials");
       }
-      const correctPass = await artist.isCorrectPassword(password);
-      if (!correctPass) {
-        throw new AuthenticationError("Password is incorrect");
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
       }
-      const token = signToken(artist);
-      return { artist, token };
-    },
-    venueLogin: async (parent, { email, password }) => {
-      const venue = await Venue.findOne({ email });
-      if (!venue) {
-        throw new AuthenticationError("There is no venue with that email");
-      }
-      const correctPass = await venue.isCorrectPassword(password);
-      if (!correctPass) {
-        throw new AuthenticationError("Password is incorrect");
-      }
-      const token = signToken(venue);
-      return { venue, token };
+
+      const token = signToken(user);
+
+      return { token, user };
     },
   },
 };

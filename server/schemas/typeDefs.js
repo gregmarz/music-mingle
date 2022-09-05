@@ -1,43 +1,24 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type Venue {
-    _id: ID!
+  type User {
+    _id: ID
     userName: String!
     email: String!
-    password: String!
-    type: String!
-    location: String!
-    capacity: Int!
-    number: String
-    socials: String
   }
-  type Artist {
-    _id: ID!
-    userName: String!
-    email: String!
-    password: String!
-    genre: String!
-    groupNumber: Int
-    link: String
-    number: String
-  }
+
   type Auth {
-    token: ID!
-    artist: Artist
-    venue: Venue
+    token: ID
+    user: User
   }
+
   type Query {
-    artists: [Artist]
-    venues: [Venue]
-    artist: Artist
-    venue: Venue
+    user: User
   }
+
   type Mutation {
-    artistLogin(email: String!, password: String!): Auth
-    venueLogin(email: String!, password: String!): Auth
-    addVenue(userName: String!, email: String!, password: String!, type: String!, location: String!, capacity: Int!, number: String, email: String, socials: String): Auth
-    addArtist(userName: String!, email: String!, password: String!, genre: String!, groupNumber: Int!, link: String, number: String): Auth
+    addUser(userName: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
 `;
 
