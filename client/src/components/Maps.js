@@ -1,14 +1,20 @@
 
-function initMap() {
-var mapApiKey = 'AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg'
-let map;
-  map = new google.maps.Map(document.getElementById("mapDiv"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 12,
-  });
-  console.log('test map')
+import React from 'react';
+import { GoogleMap, useLoadScript, Marker } from 'react-google-maps/api'
+
+export default function Venue() {
+   const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.GOOGLE_API_KEY
+   })
+   if (!isLoaded) return <div>Loading...</div>
+    return <Map />
 }
 
-window.initMap = initMap;
-
-export default initMap
+function Map(){
+    const center= useMemo(() => ({lat: 25, lng:-80}))
+    return (
+    <GoogleMap zoom={10} center={center} mapContainerClassName='map-container'>
+        <Marker position={center} />
+    </GoogleMap>
+    )
+}
