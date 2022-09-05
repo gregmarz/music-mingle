@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_ARTIST } from '../utils/mutations';
 
-function ArtistSignup(props) {
+function Artistsignup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addArtist] = useMutation(ADD_ARTIST);
 
@@ -12,10 +11,13 @@ function ArtistSignup(props) {
     event.preventDefault();
     const mutationResponse = await addArtist({
       variables: {
+        userName: formState.userName,
         email: formState.email,
         password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
+        genre: formState.genre,
+        groupNumber: formState.groupNumber,
+        link: formState.link,
+        number: formState.number,
       },
     });
     const token = mutationResponse.data.addArtist.token;
@@ -32,27 +34,16 @@ function ArtistSignup(props) {
 
   return (
     <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
 
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
+      <div className="flex-row space-between my-2">
+          <label htmlFor="userName">Username:</label>
           <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
+            placeholder="Username"
+            name="userName"
+            type="text"
+            id="userName"
             onChange={handleChange}
           />
         </div>
@@ -76,6 +67,46 @@ function ArtistSignup(props) {
             onChange={handleChange}
           />
         </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="genre">Genre:</label>
+          <input
+            placeholder="genre"
+            name="genre"
+            type="text"
+            id="genre"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="groupNumber">Group-Number:</label>
+          <input
+            placeholder="groupNumber"
+            name="groupNumber"
+            type="text"
+            id="groupNumber"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="link">Link:</label>
+          <input
+            placeholder="link"
+            name="link"
+            type="text"
+            id="link"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="number">Number:</label>
+          <input
+            placeholder="number"
+            name="number"
+            type="text"
+            id="number"
+            onChange={handleChange}
+          />
+        </div>
         <div className="flex-row flex-end">
           <button type="submit">Submit</button>
         </div>
@@ -84,4 +115,4 @@ function ArtistSignup(props) {
   );
 }
 
-export default ArtistSignup;
+export default Artistsignup;
