@@ -1,4 +1,4 @@
-import { gql } from '@appolo/client'
+import { gql } from '@apollo/client'
 
 export const QUERY_ARTISTS = gql`
     query getArtists {
