@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import Auth from "../utils/auth";
+/* import Auth from "../utils/auth";
 import { useMutation } from '@apollo/client';
-import { ARTIST_LOGIN } from '../utils/mutations';
+import { ARTIST_LOGIN } from '../utils/mutations'; */
 
 const ArtistLogin = () => {
-    const [artistLogin] = useMutation(ARTIST_LOGIN);
+  /*   const [artistLogin, { error }] = useMutation(ARTIST_LOGIN);
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
 
   const handleChange = (event) => {
@@ -14,40 +14,36 @@ const ArtistLogin = () => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault(); */
 
-    // check if form has everything (as per react-bootstrap docs)
+/*     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-    }
+    } */
 
-    try {
-      const response = await artistLogin(userFormData);
-
-      if (!response.ok) {
-        throw new Error("something went wrong!");
-      }
-
-      const { token, userName } = await response.json();
-      console.log(userName);
+/*     try {
+      const mutationResponse = await artistLogin({
+        variables: { email: userFormData.email, password: userFormData.password },
+      });
+      const token = mutationResponse.data.login.token;
       Auth.login(token);
-    } catch (err) {
-      console.error(err);
+    } catch (e) {
+      console.log(e);
     }
 
     setUserFormData({
       email: "",
       password: "",
     });
-  };
+  }; */
 
   return (
     <div className="container my-1">
 
       <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email:</label>
           <input
@@ -55,7 +51,7 @@ const ArtistLogin = () => {
             name="email"
             type="email"
             id="email"
-            onChange={handleChange}
+
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -65,9 +61,9 @@ const ArtistLogin = () => {
             name="password"
             type="password"
             id="pwd"
-            onChange={handleChange}
           />
         </div>
+
         <div className="flex-row flex-end">
           <button type="submit">Submit</button>
         </div>
