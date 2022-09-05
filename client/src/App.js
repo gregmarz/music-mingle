@@ -1,5 +1,4 @@
-import logo from "./logo.svg";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import React from "react";
 import {
@@ -9,13 +8,10 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { StoreProvider } from './utils/GlobalState';
+import { StoreProvider } from "./utils/GlobalState";
 import Home from "./pages/Home";
-import Header from "./components/Header";
 import ArtistLogin from "./pages/ArtistLogin";
-/* import VenueLogin from "./pages/VenueLogin"; */
-import ArtistSignup from "./pages/ArtistSignup";
-/* import VenueSignup from "./pages/VenueSignup"; */
+import Error from "./pages/Error";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -44,46 +40,15 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
       <StoreProvider>
-        <div className="App">
-          <Header />
+        <BrowserRouter>
           <Routes>
-           <Route 
-                path="/artist-login" 
-                element={<ArtistLogin />} 
-              />
-              <Route 
-                path="/artist-signup" 
-                element={<ArtistSignup />} 
-              />
-{/*                          <Route 
-                path="/venue-login" 
-                element={<VenueLogin />} 
-              />
-              <Route 
-                path="/venue-signup" 
-                element={<VenueSignup />} 
-              /> */}
-              </Routes>
-              <Home />
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
-        </StoreProvider>
-      </Router>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="artist-login" element={<ArtistLogin />}></Route>
+            <Route path="*" element={<Error />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </StoreProvider>
     </ApolloProvider>
   );
 }

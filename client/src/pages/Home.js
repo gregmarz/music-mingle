@@ -1,12 +1,11 @@
-/* import Header from "./Header"
-import ArtistProf from "./ArtistProf"
-import VenueProf from "./VenueProf" */
-/* import "./src/App.css" */
 import React from "react";
+import Header from "../components/Header";
+
 function Home() {
   return (
     <div>
       <div>
+        <Header />
         <form className="arist-login">
           <h2>Artist Login</h2>
           <div>
