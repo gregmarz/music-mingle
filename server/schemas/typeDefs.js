@@ -7,20 +7,20 @@ const typeDefs = gql`
     email: String!
   }
 
-  type:Artist {
+  type Artist {
     _id: ID
-    name:String!
-    genre:String
-    groupSize:Number!
-    link:String
+    name: String!
+    genre: String
+    groupSize: Int!
+    link: String
   }
 
-  type:Venue {
-    name:String!
-    type:String!
-    capacity:Number!
-    location:String!
-    website:String
+  type Venue {
+    name: String!
+    type: String!
+    capacity: Int!
+    location: String!
+    website: String
   }
 
   type Auth {
@@ -30,6 +30,8 @@ const typeDefs = gql`
 
   type Query {
     user: User
+    artist: [Artist]
+    venue: [Venue]
   }
 
   type Mutation {
