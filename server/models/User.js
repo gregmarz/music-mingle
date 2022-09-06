@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
-const Venue = require("./Venue");
-const Artist = require("./Artist");
+const SavedVenue = require("./SavedVenue");
+const SavedArtist = require("./SavedArtist");
 
 const userSchema = new Schema({
   userName: {
@@ -20,8 +20,8 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  savedArtists: [Artist.schema],
-  savedVenues: [Venue.schema],
+  savedArtists: [SavedArtist.schema],
+  savedVenues: [SavedVenue.schema],
 });
 
 // set up pre-save middleware to create password

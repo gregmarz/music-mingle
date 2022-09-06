@@ -18,6 +18,16 @@ const typeDefs = gql`
     link: String
   }
 
+  type SavedArtist {
+    _id: ID
+    artists: [Artist]
+  }
+
+  type SavedVenue {
+    _id: ID
+    venues: [Venue]
+  }
+
   type Venue {
     _id: ID!
     name: String!
@@ -44,6 +54,8 @@ const typeDefs = gql`
   type Mutation {
     addUser(userName: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    saveArtist(artists: [ID]!): Artist
+    saveVenue(venues: [ID]!): Venue
   }
 `;
 

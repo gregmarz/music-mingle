@@ -44,6 +44,30 @@ const resolvers = {
 
       return { token, user };
     },
+    saveArtist: async (parent, { artists }, context) => {
+      console.log(context);
+      if (context.user) {
+        const savedArtist = new Artist({ artists });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { savedArtists: savedArtist } });
+
+        return savedArtist;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    saveVenue: async (parent, { venues }, context) => {
+      console.log(context);
+      if (context.user) {
+        const savedVenue = new SavedVenue({ venues });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { savedVenues: savedVenue } });
+
+        return savedVenue;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
   },
 };
 
