@@ -1,17 +1,24 @@
 import React from "react";
-import '../components/Nav/index.css'
 
-const artistNames = [
-  { name: "Billy", genre: "rock", groupSize: 5, link: "www.billy.com" },
-  { name: "Thomas", genre: "jazz", groupSize: 2 },
-  { name: "Michael", genre: "Pop", groupSize: 1 },
-];
+import { useQuery } from '@apollo/client';
+import { QUERY_ARTISTS } from '../utils/queries';
 
 export default function Artists() {
+  const { loading, data } = useQuery(QUERY_ARTISTS, {
+    fetchPolicy: "no-cache"
+  });
+
+  const artistList = data?.artists || [];
+
   return (
     <>
-      {artistNames.map(({ name, genre, groupSize, link }) => (
-       <div className="div-border" key={name}>
+    <h1>Artists!</h1>
+    {loading ? (
+        <div>Loading...</div>
+      ) : (
+    <div>
+     {artistList.map(({ name, genre, groupSize, link }) => (
+          <div className="div-border" key={name}>
             <ul className="artist-card">
                 <li className="arist-deets">{name}</li>
                 <li className="arist-deets">{genre}</li>
@@ -20,6 +27,8 @@ export default function Artists() {
           </ul>
         </div>
       ))}
+    </div>
+      )}
     </>
   );
 }

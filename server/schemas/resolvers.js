@@ -10,6 +10,9 @@ const resolvers = {
     artist: async (parent, args, context) => {
       return await Artist.find();
     },
+    artists: async (parent, args, context) => {
+      return await Artist.find();
+    },
     venue: async (parent, args, context) => {
       return await Venue.find();
     },

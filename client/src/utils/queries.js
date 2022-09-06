@@ -31,3 +31,15 @@ export const QUERY_ARTIST = gql`
     }
   }
 `;
+
+export const QUERY_ARTISTS = gql`
+  query artists($_id: String) {
+    artists(_id: $_id) {
+      _id
+      name
+      genre
+      groupSize
+      link
+    }
+  }
+`;

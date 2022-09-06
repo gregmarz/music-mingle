@@ -11,6 +11,7 @@ const typeDefs = gql`
   }
 
   type Artist {
+    _id: ID!
     name: String!
     genre: String!
     groupSize: Int!
@@ -18,7 +19,7 @@ const typeDefs = gql`
   }
 
   type Venue {
-    _id: ID
+    _id: ID!
     name: String!
     type: String!
     capacity: Int!
@@ -36,6 +37,8 @@ const typeDefs = gql`
     user: [User]
     artist: [Artist]
     venue: [Venue]
+    artists(_id: String): [Artist]
+    venues(_id: String): [Venue]
   }
 
   type Mutation {
