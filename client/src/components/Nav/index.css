@@ -109,8 +109,10 @@ div.find-buttons {
 }
 
 #root .artist-card{
-    text-align: center;
-    display: flex;
+    display: inline-block;
+    width: 150px;
+    border: whitesmoke 2px solid;
+    padding: 8px;
 }
 
 .card {  
@@ -126,3 +128,8 @@ div.find-buttons {
   font-size: 22px; 
 }
 
+.artist-deets{
+    list-style-type: none;
+    font-size: 15px;
+    font-size: 22px; 
+  }
