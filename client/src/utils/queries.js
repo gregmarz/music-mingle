@@ -43,3 +43,17 @@ export const QUERY_ARTISTS = gql`
     }
   }
 `;
+
+export const QUERY_VENUES = gql`
+  query venues($_id: String) {
+    venues(_id: $_id) {
+      _id
+      name
+      type
+      capacity
+      number
+      location
+      website
+    }
+  }
+`;

@@ -1,7 +1,7 @@
 import React from "react";
-
 import { useQuery } from '@apollo/client';
 import { QUERY_ARTISTS } from '../utils/queries';
+import '../components/Nav/index.css'
 
 export default function Artists() {
   const { loading, data } = useQuery(QUERY_ARTISTS, {

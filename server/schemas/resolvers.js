@@ -16,6 +16,9 @@ const resolvers = {
     venue: async (parent, args, context) => {
       return await Venue.find();
     },
+    venues: async (parent, args, context) => {
+      return await Venue.find();
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {

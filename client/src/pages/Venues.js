@@ -1,38 +1,23 @@
-import { Loader } from '@googlemaps/js-api-loader'
 import React from "react";
-const mapKey = process.env.GOOGLE_API_KEY
-
-
-const venueList = [
-  {
-    name: "Johns Jazzy Venue",
-    type: "Outside",
-    capacity: 500,
-    number: "440-555-5555",
-    location: "Ohio",
-    website: "www.JJV.com",
-  },
-  {
-    name: "Momma Mia's Motel",
-    type: "Inside",
-    capacity: 12,
-    number: "216-555-5555",
-    location: "Iowa",
-    website: "www.miamoteliowa.com",
-  },
-  {
-    name: "Michael Jackson Reborn",
-    type: "Inside",
-    capacity: 150,
-    number: "216-543-0307",
-    location: "South Carolina",
-    website: "www.MJR.gov",
-  },
-];
+import { useQuery } from '@apollo/client';
+import { QUERY_VENUES } from '../utils/queries';
+import '../components/Nav/index.css'
+/* import { Loader } from '@googlemaps/js-api-loader'
+const mapKey = process.env.GOOGLE_API_KEY */
 
 export default function Venues() {
+  const { loading, data } = useQuery(QUERY_VENUES, {
+    fetchPolicy: "no-cache"
+  });
+
+  const venueList = data?.venues || [];
   return (
     <>
+      <h1>Venues!</h1>
+      {loading ? (
+      <div>Loading...</div>
+      ) : (
+    <div>
       {venueList.map(({ name, type, capacity, number, location, website }) => (
          <div className="div-border" key={name}>
          <ul className="card">
@@ -41,9 +26,12 @@ export default function Venues() {
              <li className="deets">{capacity}</li>
              <li className="deets">{number}</li>
              <li className="deets">{location}</li>
+             <li className="deets">{website}</li>
        </ul>
      </div>
       ))}
+          </div>
+      )}
     </>
   );
 }
