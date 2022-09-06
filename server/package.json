@@ -11,6 +11,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "proxy": "http://127.0.0.1:3000",
+  "secure": false,
   "dependencies": {
     "apollo-server-express": "^3.6.2",
     "bcrypt": "^4.0.1",
