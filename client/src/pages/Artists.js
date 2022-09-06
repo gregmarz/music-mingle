@@ -1,19 +1,28 @@
 import React from "react";
-
-const artistNames = [
-  { name: "Billy", genre: "rock", groupSize: 5, link: "www.billy.com" },
-  { name: "Thomas", genre: "jazz", groupSize: 2 },
-  { name: "Michael", genre: "Pop", groupSize: 1 },
-];
+import { useQuery } from '@apollo/client';
+import { QUERY_ARTISTS } from '../utils/queries';
 
 export default function Artists() {
+  const { loading, data } = useQuery(QUERY_ARTISTS, {
+    fetchPolicy: "no-cache"
+  });
+
+  const artistList = data?.artists || [];
+
   return (
     <>
-      {artistNames.map(({ name, genre, groupSize, link }) => (
+    <h1>Artists!</h1>
+    {loading ? (
+        <div>Loading...</div>
+      ) : (
+    <div>
+     {artistList.map(({ name, genre, groupSize, link }) => (
         <p key={name}>
           {name},{genre},{groupSize},{link}
         </p>
       ))}
+    </div>
+      )}
     </>
   );
 }

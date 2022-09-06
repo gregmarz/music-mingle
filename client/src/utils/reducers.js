@@ -17,13 +17,13 @@ export const reducer = (state, action) => {
         case ADD_ARTIST:
           return {
             ...state,
-            artists: [...action.artist],
+            artists: [...state.artists],
           };
     
         case ADD_VENUE:
           return {
             ...state,
-            venues: [...action.venue],
+            venues: [...state.venues],
           };
 
         default:
