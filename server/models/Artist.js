@@ -10,11 +10,11 @@ const artistSchema = new Schema({
   },
   genre: {
     type: String,
+    required: true,
   },
   groupSize: {
     type: Number,
     required: true,
-    min: 1,
   },
   link: {
     type: String,

@@ -1,5 +1,5 @@
 import React from "react";
 
-function Artists() {}
+function Venues() {}
 
-export default Artists;
+export default Venues;
