@@ -11,12 +11,12 @@ function SingleArtist(item) {
   
     return (
         <div className="div-border" key={name}>
-        <ul className="artist-card">
-            <li className="artist-deets">{name}</li>
-            <li className="artist-deets">{genre}</li>
-            <li className="artist-deets">{groupSize}</li>
-            <li className="artist-deets">{link}</li>
-            <li className="artist-deets"><button>Save Artist</button></li>
+        <ul className="card">
+            <li className="deets">{name}</li>
+            <li className="deets">{genre}</li>
+            <li className="deets">{groupSize}</li>
+            <li className="deets">{link}</li>
+            <li className="deets"><button>Save Artist</button></li>
       </ul>
     </div>
     );
