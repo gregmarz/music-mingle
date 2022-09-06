@@ -17,7 +17,7 @@ export default function Venues() {
       {loading ? (
       <div>Loading...</div>
       ) : (
-    <div>
+    <div className="div-border">
       {venueList.map(({ name, type, capacity, number, location, website }) => (
          <div className="div-border" key={name}>
          <ul className="card">

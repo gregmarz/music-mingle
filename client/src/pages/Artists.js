@@ -60,15 +60,15 @@ export default function Artists() {
     {loading ? (
         <div>Loading...</div>
       ) : (
-    <div>
+    <div className="div-border">
      {artistList.map(({ name, genre, groupSize, link }) => (
-          <div className="div-border" key={name}>
-            <ul className="artist-card">
-                <li className="artist-deets">{name}</li>
-                <li className="artist-deets">{genre}</li>
-                <li className="artist-deets">{groupSize}</li>
-                <li className="artist-deets">{link}</li>
-                <li className="artist-deets"><button onClick={handleFormSubmit}>Save Artist</button></li>
+          <div key={name}>
+            <ul className="card">
+                <li className="deets">{name}</li>
+                <li className="deets">{genre}</li>
+                <li className="deets">{groupSize}</li>
+                <li className="deets">{link}</li>
+                <li className="deets"><button onClick={handleFormSubmit}>Save Artist</button></li>
           </ul>
         </div>
       ))}
