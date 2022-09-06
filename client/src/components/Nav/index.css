@@ -104,8 +104,10 @@ div.find-buttons {
 }
 
 .div-border{
-    width:33%;
+    width: 100%;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #root .artist-card{
@@ -119,17 +121,17 @@ div.find-buttons {
  display: inline-block;
  width: 150px;
  border: whitesmoke 2px solid;
- padding: 8px;
+ padding: 45px;
+ margin: 10px;
+ justify-content: space-between;
 }
 
 .deets{
+  display: flex;
   list-style-type: none;
-  font-size: 15px;
-  font-size: 22px; 
+  font-size: 25px;
+  border-bottom: 1px dashed black; 
+  padding: 2px;
+  margin-right: 2px;
+  overflow: hidden;
 }
-
-.artist-deets{
-    list-style-type: none;
-    font-size: 15px;
-    font-size: 22px; 
-  }

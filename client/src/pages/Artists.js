@@ -16,7 +16,7 @@ export default function Artists() {
     {loading ? (
         <div>Loading...</div>
       ) : (
-    <div>
+    <div className="div-border">
      {artistList.map(({ name, genre, groupSize, link }) => (
                   <SingleArtist
                   key={name}
