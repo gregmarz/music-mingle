@@ -15,10 +15,10 @@ h1 {
     text-align: center;
 }
 
-.title{
+.title {
     text-align: center;
     font-size: 50px;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 @keyframes bgcolor {
@@ -27,19 +27,19 @@ h1 {
     }
 
     30% {
-        background-color: #66bf39
+        background-color: #487e2e
     }
 
     60% {
-        background-color: #eb670f
+        background-color: #923f07
     }
 
     90% {
-        background-color: #f35
+        background-color: rgb(189, 22, 50)
     }
 
     100% {
-        background-color: #864cbf
+        background-color: #873dd1
     }
 }
 
@@ -49,3 +49,80 @@ body {
     -webkit-animation-direction: alternate;
     animation-direction: alternate;
 }
+
+.logout-list{
+    list-style-type: none;
+    font-size: 25px;
+    height: 10%;
+}
+
+nav .title{
+    float: left;
+}
+
+#logout-button:hover {
+    border: 1px solid whitesmoke;
+    background-color: white;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+a:hover{
+    box-shadow: inset;
+}
+
+.title a:hover{
+    box-shadow: inset;
+    background-color: aliceblue;
+    border-radius: 15px;
+    padding: 4px;
+}
+
+div.button-div{
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    margin: 10px;
+}
+
+body .button{
+    align-items: center;
+}
+
+div.find-buttons {
+    margin-right: 45%;
+    float: right;
+    display: flex;
+}
+
+.button {
+    padding: 10px;
+}
+
+.button button{
+    padding: 10px;
+}
+
+.div-border{
+    width:33%;
+    align-items: center;
+}
+
+#root .artist-card{
+    text-align: center;
+    display: flex;
+}
+
+.card {  
+ display: inline-block;
+ width: 150px;
+ border: whitesmoke 2px solid;
+ padding: 8px;
+}
+
+.deets{
+  list-style-type: none;
+  font-size: 15px;
+  font-size: 22px; 
+}
+

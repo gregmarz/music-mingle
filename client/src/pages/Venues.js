@@ -1,4 +1,7 @@
+import { Loader } from '@googlemaps/js-api-loader'
 import React from "react";
+const mapKey = process.env.GOOGLE_API_KEY
+
 
 const venueList = [
   {
@@ -31,9 +34,15 @@ export default function Venues() {
   return (
     <>
       {venueList.map(({ name, type, capacity, number, location, website }) => (
-        <p key={name}>
-          {name},{type}, {capacity}, {number}, {location}, {website}
-        </p>
+         <div className="div-border" key={name}>
+         <ul className="card">
+             <li className="deets">{name}</li>
+             <li className="deets">{type}</li>
+             <li className="deets">{capacity}</li>
+             <li className="deets">{number}</li>
+             <li className="deets">{location}</li>
+       </ul>
+     </div>
       ))}
     </>
   );

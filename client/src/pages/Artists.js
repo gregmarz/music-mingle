@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useQuery } from '@apollo/client';
 import { QUERY_ARTISTS } from '../utils/queries';
 
@@ -17,9 +18,14 @@ export default function Artists() {
       ) : (
     <div>
      {artistList.map(({ name, genre, groupSize, link }) => (
-        <p key={name}>
-          {name},{genre},{groupSize},{link}
-        </p>
+          <div className="div-border" key={name}>
+            <ul className="artist-card">
+                <li className="arist-deets">{name}</li>
+                <li className="arist-deets">{genre}</li>
+                <li className="arist-deets">{groupSize}</li>
+                <li className="arist-deets">{link}</li>
+          </ul>
+        </div>
       ))}
     </div>
       )}
