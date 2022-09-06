@@ -21,3 +21,33 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SAVE_ARTIST = gql`
+  mutation saveArtist($artists: [ID]!) {
+    saveArtist(artists: $artists) {
+      artists {
+        _id
+        name
+        genre
+        groupSize
+        link
+      }
+    }
+  }
+`;
+
+export const SAVE_VENUE = gql`
+mutation saveVenue($venues: [ID]!) {
+  saveVenue(venues: $venues) {
+    venues {
+      _id
+      name
+      type
+      capacity
+      number
+      location
+      website
+    }
+  }
+}
+`;

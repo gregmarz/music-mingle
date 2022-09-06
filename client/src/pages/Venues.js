@@ -27,6 +27,7 @@ export default function Venues() {
              <li className="deets">{number}</li>
              <li className="deets">{location}</li>
              <li className="deets">{website}</li>
+             <li className="deets"><button type="submit">Save Venue</button></li>
        </ul>
      </div>
       ))}
