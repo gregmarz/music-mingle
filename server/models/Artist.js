@@ -3,20 +3,20 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const artistSchema = new Schema({
-  Name: {
+  name: {
     type: String,
     required: true,
     trim: true,
   },
   genre: {
     type: String,
+    required: true,
   },
   groupSize: {
     type: Number,
     required: true,
-    min: 1,
   },
-  Link: {
+  link: {
     type: String,
   },
 });

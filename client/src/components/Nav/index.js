@@ -9,7 +9,7 @@ function Nav() {
       return (
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/"></Link>
           </li>
           <li>
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}

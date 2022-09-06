@@ -5,13 +5,13 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id);
-
-        return user;
-      }
-
-      throw new AuthenticationError("Not logged in");
+      return await User.find();
+    },
+    artist: async (parent, args, context) => {
+      return await Artist.find();
+    },
+    venue: async (parent, args, context) => {
+      return await Venue.find();
     },
   },
   Mutation: {
