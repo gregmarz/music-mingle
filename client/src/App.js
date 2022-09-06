@@ -12,6 +12,8 @@ import Home from "./pages/Home";
 import Artists from "./pages/Artists";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Artists from "./pages/Artists";
+import Venues from "./pages/Venues";
 import Error from "./pages/Error";
 import Nav from "./components/Nav";
 
@@ -44,7 +46,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/artists" element={<Artists />}></Route>
+            <Route path="/artists" element={<Artists />} />
+            <Route path="/venues" element={<Venues />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </div>

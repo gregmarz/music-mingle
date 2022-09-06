@@ -18,6 +18,7 @@ const typeDefs = gql`
   }
 
   type Venue {
+    _id: ID
     name: String!
     type: String!
     capacity: Int!
