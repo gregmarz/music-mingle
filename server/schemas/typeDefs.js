@@ -5,12 +5,14 @@ const typeDefs = gql`
     _id: ID
     userName: String!
     email: String!
+    password: String!
+    savedArtists: [Artist]
+    savedVenues: [Venue]
   }
 
   type Artist {
-    _id: ID
     name: String!
-    genre: String
+    genre: String!
     groupSize: Int!
     link: String
   }
@@ -19,6 +21,7 @@ const typeDefs = gql`
     name: String!
     type: String!
     capacity: Int!
+    number: String!
     location: String!
     website: String
   }
@@ -29,7 +32,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: User
+    user: [User]
     artist: [Artist]
     venue: [Venue]
   }

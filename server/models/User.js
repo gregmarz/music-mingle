@@ -2,12 +2,13 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
+const Venue = require("./Venue");
+const Artist = require("./Artist");
 
 const userSchema = new Schema({
   userName: {
     type: String,
     required: true,
-    trim: true,
   },
   email: {
     type: String,
@@ -19,6 +20,8 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  savedArtists: [Artist.schema],
+  savedVenues: [Venue.schema],
 });
 
 // set up pre-save middleware to create password
@@ -27,7 +30,6 @@ userSchema.pre("save", async function (next) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
-
   next();
 });
 
