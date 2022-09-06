@@ -26,7 +26,13 @@ input {
 
 h2{
     font-size: 50px;
-    width: 20%;
     text-align: center;
     margin-bottom: 5px;
+}
+
+.signup{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    border: whitesmoke 2px solid;
 }
