@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+import { Link, renderMatches } from "react-router-dom";
+import '../Nav/index.css'
 
 function Nav() {
   function showNavigation() {
@@ -19,8 +20,9 @@ function Nav() {
         </ul>
       );
     } else {
-      return (
-        <ul>
+        return (
+        <div className = "signin-2">
+        <ul className="login-list">
           <li>
             <Link to="/signup">Signup</Link>
           </li>
@@ -28,13 +30,14 @@ function Nav() {
             <Link to="/login">Login</Link>
           </li>
         </ul>
+        </div>
       );
     }
   }
 
   return (
     <header>
-      <h1>
+      <h1 className="title">
         <Link to="/">
           <span role="img"></span>
           Music Mingle
