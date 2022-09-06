@@ -11,8 +11,8 @@ import { setContext } from "@apollo/client/link/context";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Artists from "./pages/Artists";
-import Venues from "./pages/Venues";
+import Artists from "./components/Artist";
+import Venues from "./components/Venue";
 import Error from "./pages/Error";
 import Nav from "./components/Nav";
 

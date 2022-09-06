@@ -31,3 +31,15 @@ export const QUERY_ARTIST = gql`
     }
   }
 `;
+
+/* export const QUERY_ARTISTS = gql`
+  query getArtists{
+    artists {
+      name
+      genre
+      groupSize
+      link
+    }
+  }
+`;
+ */
