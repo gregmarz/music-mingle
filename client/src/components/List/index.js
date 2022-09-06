@@ -1,18 +1,25 @@
 import React from "react";
-import '../Nav/index.css'
+import '../Nav/index.css';
+import Auth from "../../utils/auth";
 
 function List() {
-  return (
-    <div>
-      <h1>Login or signup to get a gig scheduled!</h1>
-      <a href="/venues">
-        <button>Find Venues</button>
-      </a>
-      <a href="/artists">
-        <button>Find Artists</button>
-      </a>
-    </div>
-  );
+  if (Auth.loggedIn()) {
+    return (
+      <div>
+        <h1>Login or signup to get a gig scheduled!</h1>
+        <a href="/venues">
+          <button>Find Venues</button>
+        </a>
+        <a href="/artists">
+          <button>Find Artists</button>
+        </a>
+      </div>
+    );
+  } else {
+    return (
+      <div>LOGIN</div>
+    )
+  }
 }
 
 export default List;
