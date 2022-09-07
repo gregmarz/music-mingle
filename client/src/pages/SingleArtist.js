@@ -31,7 +31,7 @@ function SingleArtist(item) {
             <li className="deets">{name}</li>
             <li className="deets">{genre}</li>
             <li className="deets">{groupSize}</li>
-            <li className="deets">{link}</li>
+            <li className="deets"><a href={link}>{link}</a></li>
             <li className="deets"><button onClick={handle}>Save Artist</button></li>
       </ul>
       {error && <div>Something went wrong...</div>}
