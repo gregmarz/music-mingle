@@ -61,7 +61,7 @@ nav .title{
 }
 
 #logout-button:hover {
-    border: 1px solid whitesmoke;
+    border: 1px solid lightblue;
     background-color: white;
     border-radius: 30px;
     padding: 5px;
@@ -71,9 +71,14 @@ a:hover{
     box-shadow: inset;
 }
 
+a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
 .title a:hover{
     box-shadow: inset;
-    background-color: aliceblue;
+    background-color: lightblue;
     border-radius: 15px;
     padding: 4px;
 }
@@ -136,3 +141,8 @@ div.find-buttons {
   overflow: hidden;
 }
 
+.welcome{
+    text-align: center;
+    font-size: 30px;
+        color: whitesmoke;
+}
