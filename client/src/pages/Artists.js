@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ARTISTS } from '../utils/queries';
 import SingleArtist from './SingleArtist';
 
-export default function Artists() {
+function Artists() {
   const { loading, data } = useQuery(QUERY_ARTISTS, {
     fetchPolicy: "no-cache"
   });
@@ -32,3 +32,5 @@ export default function Artists() {
     </>
   );
 }
+
+export default Artists;
