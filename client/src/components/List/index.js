@@ -19,7 +19,7 @@ function List() {
     );
   } else {
     return (
-      <div>LOGIN</div>
+      <div>Welcome to Music Mingler, Sign-In!</div>
     )
   }
 }
