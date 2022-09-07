@@ -48,7 +48,7 @@ function App() {
             <Route path="/artists" element={<Artists />} />
             <Route path="/venues" element={<Venues />} />
             <Route path="*" element={<Error />} />
-          </Routes>
+            </Routes>
       </Router>
     </ApolloProvider>
   );

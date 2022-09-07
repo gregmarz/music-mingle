@@ -2,8 +2,7 @@ import React from "react";
 import { useQuery } from '@apollo/client';
 import { QUERY_VENUES } from '../utils/queries';
 import '../components/Nav/index.css'
-/* import { Loader } from '@googlemaps/js-api-loader'
-const mapKey = process.env.GOOGLE_API_KEY */
+import MyMap from "../components/Map/Maps";
 
 export default function Venues() {
   const { loading, data } = useQuery(QUERY_VENUES, {
@@ -31,8 +30,19 @@ export default function Venues() {
        </ul>
      </div>
       ))}
-          </div>
+      <div>
+      <MyMap />
+      </div>
+      
+      </div>
+
       )}
     </>
   );
 }
+
+
+ 
+
+
+

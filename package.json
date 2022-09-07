@@ -19,8 +19,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.14.3",
-    "google-map-react": "^2.2.0"
+    "dotenv": "^16.0.2",
+    "leaflet": "^1.8.0"
   },
   "engines": {
     "node": "^14.17.5"
